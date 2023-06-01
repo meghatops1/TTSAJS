@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+        function objectEx(){
+            let Student={
+                name:"Megha",
+                subject:"Advance java",
+                email:"m@gmail.com",
+            }
+            let str="";
+            for (let key in Student){
+                str+=`<p>${key}   = ${Student[key]}`;
+            }
+            document.getElementById('test').innerHTML=str;
+            let  subject={
+                name:"Advance javascript",
+                scode:"AJS001",
+                time:"1month"
+            }
+            subject.showTableData = function(){
+                let trstr="";
+                for(let key in subject){
+                    if(key == "showTableData"){
+                        continue;
+                    }
+                    trstr+=`<td>${subject[key]}</td>`;
+                   
+                    console.log(trstr);
+                }
+                document.getElementById('sdata').innerHTML=trstr;
+            }
+            subject.showTableData();
+            
+
+           
+        }
+    </script>
+</head>
+<body>
+    <button onclick="objectEx()">
+        Object example
+    </button>
+    <div id="test"></div>
+    <table border="1">
+        <tr>
+            <th>Subject Name</th>
+            <th>SubjectCode</th>
+            <th>time</th>
+        </tr>
+        <tr id="sdata"></tr>
+    </table>
+</body>
+</html>

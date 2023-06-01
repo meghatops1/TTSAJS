@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    h1{
+        text-align: center;
+        font-size: 88px;
+        transform: scale(1);
+        animation: game 2s ease-in-out 0.5s 3 alternate-reverse ;
+      
+    }
+
+    @keyframes game{
+        from{
+
+        }
+        to{
+            transform: scale(1.5);
+        }
+    }
+  </style>
+    <script>
+       
+        function objectEx(){
+            function Subject(name,scode){
+                this.name=name,
+                this.scode=scode,
+
+                this.printSubject = function(){
+                    console.log(`subject name=${this.name}`);
+                    console.log(`subject code=${this.scode}`);
+
+                }
+            }
+
+            let subject1= new Subject("ajs","ajs001");
+            subject1.printSubject();
+            let subject2 = new Subject("reactjs","react001");
+            subject2.printSubject();
+        }
+        function changeImg(imgid){
+            const first=[
+            {"animation-name" : "game"},
+            {"animation-timing-function": "ease-in-out"},
+            {"animation-delay": "0.5s"},
+            {"animation-direction": "alternate-reverse"}
+            ];
+            const sec={
+                duration: 1000,
+                iterations: 5,
+            }
+            
+            let x = Math.floor((Math.random() * 6) + 1);
+            let imageName= `${x}.jpg`;
+            document.getElementById(imgid).src=imageName;
+            //alert(imageName);
+            if(x==6){
+                const myTimeout = setTimeout(headPrint, 1000);
+               
+            }
+            function headPrint(){
+                document.body.style.backgroundColor="black";
+                document.body.innerHTML="<h1 id='win'>You Won</h1>";
+                let win=document.getElementById('win');
+                win.style.color="white";
+                win.animate(first,sec);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="objectEx()">
+        constructor example
+    </button>
+    <div id="test"></div>
+    <div >
+    <img src="1.jpg" alt="" id="1" onclick="changeImg(this.id)" width="200px">
+    </div>
+    
+   
+</body>
+</html>

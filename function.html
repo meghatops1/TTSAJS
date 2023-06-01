@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let number1=1235;
+        function myFunction(){
+            "use strict";
+            printHello();
+            addition(100,200);
+            addition(10,20,30);
+            //let squareval=square(12);
+            alert(square(12));
+        }
+        function square(num){
+            let sq;
+            sq=num*num;
+            return sq;
+        }
+        function printHello(){
+            let a=10,b=20,c;
+            c=a+b;
+            let str=`<p>addition =${c} number=${number1} Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque rem libero doloribus aperiam, earum voluptas, sed hic accusamus obcaecati aspernatur beatae aut harum eveniet quod praesentium culpa nesciunt? Enim, nisi?</p>`;
+            document.getElementById('test').innerHTML=str;
+        }
+        function addition(a,b,x=0){
+            c= a+b+x;
+            alert(`addition=${c}`);
+        }
+        
+
+    </script>
+</head>
+<body>
+    <button onclick="myFunction()">click</button>
+    <div id="test"></div>
+    
+</body>
+</html>
