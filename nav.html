@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    function navhide(){
+
+        document.getElementById('nav').style.visibility="hidden";
+    }
+    function createNav(){
+        let num,listItem ;
+        num=prompt("Enter number of nav");
+        num = Number(num);
+        let liList=["home","about",["hom1","home2"],["page1","pag2"],"here"];
+        console.log(liList);
+        let str="";
+         for(i=0;i<liList.length;i++){
+            
+            if(liList[i].length>0 && Array.isArray(liList[i])){
+                str+=`  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">${liList[i][0]} <span class="caret"></span></a>`;
+                str+=`<ul class="dropdown-menu">`;
+                for(j=0;j<liList[i].length;j++){
+                    str+=`<li><a href="#">${liList[i][j]}</a></li>`;
+                }
+                str+=`</ul>`;
+                
+            }
+            else{
+                str+=`<li><a href="#">${liList[i]}</a></li>`;
+            }
+            
+            console.log(str);
+            
+         }
+        
+        document.getElementById('nav').style.visibility="visible";
+        document.getElementById('list').innerHTML=str;
+    }
+  </script>
+</head>
+<body onload="navhide()">
+    <button onclick="createNav()">Genrate navbar</button>
+
+<nav class="navbar navbar-inverse" id="nav">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav" id="list">
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>Inverted Navbar</h3>
+  <p>An inverted navbar is black instead of gray.</p>
+</div>
+
+</body>
+</html>
