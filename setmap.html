@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let tasklist = new Map();
+        function createSet(){
+            let student = new Set();
+            student.add("hemaxi");
+            student.add("nivya");
+            console.log(student);
+            let User = new Map();
+            User.set("uname","nivya");
+            User.set("subject","Ajs");
+            console.log(User);
+        }
+        function addTask(){
+            let txt= document.getElementById("taskname").value;
+            tasklist.set(txt,txt);
+            console.log(tasklist);
+            document.getElementById("taskname").value="";
+            printTask();
+        }
+        function printTask(){
+            str="";
+            tasklist.forEach(function(value,key,map){
+                str+=`<tr><td>${key}</td><td><button id=${key} onclick="deleteTask(this.id)">delete</button></td></tr>`;
+            })
+            document.getElementById("tasktr").innerHTML=str;
+        }
+        function deleteTask(id){
+            tasklist.delete(id);
+            printTask();
+        }
+        function clearAllTask(){
+            tasklist.clear();
+            printTask();
+        }
+    </script>
+</head>
+<body>
+    <button onclick="createSet()">click</button>
+    <div class="main">
+        <h1>ToDO list</h1>
+        <input type="text" name="" id="taskname">
+        <button onclick="addTask()">Add task</button>
+        <button onclick="clearAllTask()">Clear all  task</button>
+        <table border="2" cellspacing="10px" cellpadding="10px">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tasktr">
+
+            </tbody>
+            
+
+        </table>
+    </div>
+</body>
+</html>
